@@ -1,0 +1,21 @@
+number of months
+'''
+n = 36
+m = 3
+k = 5
+'''
+number of kids one pair can make
+'''
+fib = 1
+fibPrev = fib
+print(fib, end = ' ')
+print(fibPrev, end = ' ')
+res = 0
+
+
+for i in range(3, n+1):
+
+    res = fibPrev + k*fib
+    fib = fibPrev
+    fibPrev = res 
+    print(res, end=' ')
