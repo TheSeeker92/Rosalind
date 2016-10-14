@@ -1,0 +1,87 @@
+genD = {}
+outp = ''
+DNAs = ''
+ctr = 0
+
+with open('genStrings.txt') as inp:
+    for lines in inp:
+        a = lines.split()
+        genD[a[0]] = a[1]
+
+
+with open('input.txt') as inp:
+    for word in inp:     
+        for c in word:
+            ctr+=1 #counting when the loop reaches 3 characters
+            DNAs+=c #adding to the string that will be compared to the DNA string
+            if(ctr == 3):
+                for d, p in genD.items(): #d is the DNA string and P is the Protein character
+                    if(DNAs == d): outp+=p
+                DNAs = ''
+                ctr = 0 
+print(outp)
+
+'''
+genString.txt
+UUU F
+UUC F
+UUA L
+UUG L
+UCU S
+UCC S
+UCA S
+UCG S
+UAU Y
+UAC Y
+UGU C
+UGC C
+UGG W
+CUU L
+CUC L
+CUA L
+CUG L
+CCU P
+CCC P
+CCA P
+CCG P
+CAU H
+CAC H
+CAA Q
+CAG Q
+CGU R
+CGC R
+CGA R
+CGG R
+AUU I
+AUC I
+AUA I
+AUG M
+ACU T
+ACC T
+ACA T
+ACG T
+AAU N
+AAC N
+AAA K
+AAG K
+AGU S
+AGC S
+AGA R
+AGG R
+GUU V
+GUC V
+GUA V
+GUG V
+GCU A
+GCC A
+GCA A
+GCG A
+GAU D
+GAC D
+GAA E
+GAG E
+GGU G
+GGC G
+GGA G
+GGG G
+'''
