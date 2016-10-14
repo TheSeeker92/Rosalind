@@ -1,0 +1,22 @@
+genD = {}
+outp = ''
+DNAs = ''
+ctr = 0
+
+with open('genStrings.txt') as inp:
+    for lines in inp:
+        a = lines.split()
+        genD[a[0]] = a[1]
+
+
+with open('input.txt') as inp:
+    for word in inp:     
+        for c in word:
+            ctr+=1
+            DNAs+=c
+            if(ctr == 3):
+                for d, p in genD.items():
+                    if(DNAs == d): outp+=p
+                DNAs = ''
+                ctr = 0
+print(outp)
